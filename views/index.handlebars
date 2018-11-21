@@ -1,0 +1,67 @@
+<div class="text-center">
+  <img class="img-responsive" src="/assets/images/burger.jpg">
+  <h1>Eat-Da-Burger</h1>
+</div>
+
+
+<div class="row text-center">
+
+      <div class="col-md-6 ">
+      <h2>Not Eaten</h2>
+
+
+        {{#each burgers}}
+          {{#unless devoured}}
+            
+          
+            <p>
+              <span>{{id}}. </span>{{name}}
+              
+              <input minlength=15 class="col-xs-1" type="text" class="form-control" id="eatenBy" placeholder="Customer Name"></input>
+              <button class="change-devour" data-id="{{id}}">Devour It! </button>
+            </p>
+          {{/unless}}
+          
+        {{/each}}
+
+      </div>
+
+      <div class="col-md-6">
+      <h2>Devoured</h2>
+
+        {{#each burgers}}
+          {{#if devoured}}
+            {{#if Customer.name}}
+              <p><span>{{id}}. </span>{{name}} was eaten by {{Customer.name}}</p>
+            {{else}}
+              <p><span>{{id}}. </span>{{name}}</p>
+            {{/if}}
+          {{/if}}
+        
+        {{/each}}
+
+
+      </div>
+</div>
+
+<div class="row">
+
+    <div class="col-md-4"></div>
+    <div class="col-md-4 text-center align-center">
+
+
+      <form class="create-form">
+
+          
+          <div class="form-group ">
+                  <textarea class="form-control" rows="3" id="ca" name="name"></textarea>
+          </div>
+          <p>Enter the name of a burger to submit it.</p>
+
+          <button type="submit">Add Burger</button>
+
+        
+      </form>
+    </div>
+    <div class="col-md-4"></div>
+</div>
